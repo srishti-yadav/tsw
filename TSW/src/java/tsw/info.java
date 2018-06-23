@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.Random;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.Cookie;
 public class info extends HttpServlet {
 
@@ -20,7 +21,7 @@ public class info extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try {
             
-           String name,pass,add,city,email,gen,dob,cont;
+           String name,pass,email;
         int id;
         name=request.getParameter("na");
         email=request.getParameter("em");
@@ -32,14 +33,15 @@ public class info extends HttpServlet {
  id=r.nextInt(1000);
  Class.forName("org.apache.derby.jdbc.ClientDriver");
  cn=DriverManager.getConnection("jdbc:derby://localhost:1527/tswdb;user=tswdb;password=20071997");
- pst=cn.prepareStatement("insert into tswdb values("+id+",'"+name+"','"+email+"','"+pass+"')");
+ pst=cn.prepareStatement("insert into tswdb values('"+email+"','"+pass+"',"+id+",'"+name+"')");
  int xx=pst.executeUpdate();
  if(xx==1)
  {
      Cookie c=new Cookie("username",name);
      c.setMaxAge(24*60*60);
      response.addCookie(c);
-     out.print("Registration Successfully Done !! yours UserID is :  "+id);
+     RequestDispatcher rd=request.getRequestDispatcher("login.html");
+     rd.forward(request, response);
  }
  else
  {
