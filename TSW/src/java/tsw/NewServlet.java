@@ -64,8 +64,11 @@ public class NewServlet extends HttpServlet {
  }
  else
  {
-     out.println("Wrong UserID Or Password....");
+     out.println("Wrong UserID Or Password Try Again");
+     RequestDispatcher rd=request.getRequestDispatcher("login.html");
+     rd.forward(request, response);
  }
+ 
         }
         catch(Exception ex)
         {
