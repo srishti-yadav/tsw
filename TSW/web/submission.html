@@ -2,21 +2,23 @@
 <head>
     		<link rel="stylesheet" href="assets/css/main.css" />
     <style>
+       
       .image-icon{
          width: 100px;
          height: 100px;
-         border-radius: 50px;
+         border-radius: 50%;
              margin: 0px;
             text-decoration: none;
         }
-        .imgg{
-            border-radius: 50%;
-        }
+        
         .main{
-            padding: 30px;
+            padding: 25px;
         }
-        .image{
-            padding: 10px;
+        
+       
+        .bdy{
+            padding-top: 30px;
+            width: 700px;
             
         }
         
@@ -29,25 +31,30 @@
 				<div class="container">
                     <center>
                     <div class="major" id="linkss">
-                         <a style="text-decoration: none"href="index.html"> <img class="image-icon" src ="images/tsw-icon.jpg"/></a>
-								<h2> Our Writings</h2>
+                          <img class="image-icon" src ="images/tsw-icon.jpg"/>
+								
                     </div>
-                    </center>
-					<div class="row 150%">
-                        <div class="4u 12u$(medium)">
-                              <span class="image fit"><img src="images/write5.jpg" alt="" /></span>
-				                <span class="image fit"><img src="images/write2.jpg" alt="" /></span>
-                        </div>
-<div class="4u 12u$(medium)">
-                              <span class="image fit"><img src="images/write3.jpg" alt="" /></span>
-				                <span class="image fit"><img src="images/write8.jpg" alt="" /></span>
-                        </div>                    	<div class="4u 12u$(medium)">
-  <span class="image fit"><img src="images/write1.jpg" alt="" /></span>
-				                <span class="image fit"><img src="images/write6.jpg" alt="" /></span>
-                        </div>
-							
+                    
+					<div class="bdy">
+                        Submit your write up here.
+                     
+                        <input style="height: 100px" type="text" placeholder="Type / Copy your submission">
+                        
+                        <br>
+                         <form action="#" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please confirm that all your work is original.'); return false; }">
+
+                             <input type="checkbox" name="checkbox" value="check" id="agree" /> <label style="color: white" for="agree">I hereby declare that my submission is my original work.</label>
+<input type="submit" name="submit" value="submit" />
+
+</form>
+                    
+                        
+
+
 				</div>
+                    </center>
             </div>
+                    
 			</section>
         
         <section id="footer">
