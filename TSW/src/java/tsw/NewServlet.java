@@ -9,7 +9,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Date;
-import java.util.Random;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +32,7 @@ public class NewServlet extends HttpServlet {
         pass=request.getParameter("ps");
             Connection cn;
  PreparedStatement pst,pst1;
+ int lid=0;
 
  Class.forName("org.apache.derby.jdbc.ClientDriver");
  cn=DriverManager.getConnection("jdbc:derby://localhost:1527/tswdb;user=tswdb;password=20071997");
@@ -46,8 +47,8 @@ public class NewServlet extends HttpServlet {
       HttpSession session1=request.getSession(true);
       Date d=new Date();
      session1.setAttribute("logintime", d.toString());
-     Random r=new Random();
-     int lid=r.nextInt(1000);
+     
+     lid=lid+1;
      pst1=cn.prepareStatement("insert into logdata values("+rs.getInt(1)+","+lid+",'"+email+"','"+d+"')");
      int x=pst1.executeUpdate();
      if(x==1)

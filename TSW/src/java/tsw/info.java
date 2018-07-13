@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.util.Random;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.Cookie;
 public class info extends HttpServlet {
@@ -22,7 +22,7 @@ public class info extends HttpServlet {
         try {
             
            String name,pass,email;
-        int id;
+        int id=0;
         name=request.getParameter("na");
         email=request.getParameter("em");
         pass=request.getParameter("ps");
@@ -34,8 +34,8 @@ public class info extends HttpServlet {
        else{
  Connection cn;
  PreparedStatement pst;
- Random r=new Random();
- id=r.nextInt(100000);
+ 
+ id=id+1;
  Class.forName("org.apache.derby.jdbc.ClientDriver");
  cn=DriverManager.getConnection("jdbc:derby://localhost:1527/tswdb;user=tswdb;password=20071997");
  pst=cn.prepareStatement("insert into tswdb values("+id+",'"+name+"','"+email+"','"+pass+"')");
