@@ -12,6 +12,14 @@
         <servlet-name>info1</servlet-name>
         <servlet-class>tsw.info1</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>infovoli</servlet-name>
+        <servlet-class>tsw.infovoli</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>writeups</servlet-name>
+        <servlet-class>tsw.writeups</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>info1</servlet-name>
         <url-pattern>/info1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>infovoli</servlet-name>
+        <url-pattern>/infovoli</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>writeups</servlet-name>
+        <url-pattern>/writeups</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

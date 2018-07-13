@@ -26,14 +26,19 @@ public class info extends HttpServlet {
         name=request.getParameter("na");
         email=request.getParameter("em");
         pass=request.getParameter("ps");
-       
+       if(name.equals("")|| email.equals("")||pass.equals(""))
+       {
+       out.println("Feilds cannot be empty");
+       RequestDispatcher rd=request.getRequestDispatcher("404.html");
+     rd.forward(request, response);}
+       else{
  Connection cn;
  PreparedStatement pst;
  Random r=new Random();
- id=r.nextInt(1000);
+ id=r.nextInt(100000);
  Class.forName("org.apache.derby.jdbc.ClientDriver");
  cn=DriverManager.getConnection("jdbc:derby://localhost:1527/tswdb;user=tswdb;password=20071997");
- pst=cn.prepareStatement("insert into tswdb values('"+email+"','"+pass+"',"+id+",'"+name+"')");
+ pst=cn.prepareStatement("insert into tswdb values("+id+",'"+name+"','"+email+"','"+pass+"')");
  int xx=pst.executeUpdate();
  if(xx==1)
  {
@@ -46,12 +51,16 @@ public class info extends HttpServlet {
  else
  {
      out.print("Error Try Again....");
+     RequestDispatcher rd=request.getRequestDispatcher("404.html");
+     rd.forward(request, response);
  }
-    }
+    }}
 catch(Exception ex)
 {
     out.println(ex);
+    RequestDispatcher rd=request.getRequestDispatcher("404.html");
+     rd.forward(request, response);
 }
     }
-
+    
 }

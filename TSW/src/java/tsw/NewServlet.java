@@ -48,24 +48,27 @@ public class NewServlet extends HttpServlet {
      session1.setAttribute("logintime", d.toString());
      Random r=new Random();
      int lid=r.nextInt(1000);
-     pst1=cn.prepareStatement("insert into logdata values("+rs.getInt(3)+","+lid+",'"+email+"','"+d+"')");
+     pst1=cn.prepareStatement("insert into logdata values("+rs.getInt(1)+","+lid+",'"+email+"','"+d+"')");
      int x=pst1.executeUpdate();
      if(x==1)
      {
          out.println("Save");
+         RequestDispatcher rd=request.getRequestDispatcher("submission.html");
+     rd.forward(request, response);
      }
      else
      {
          out.print("Not save..");
-     }
-     RequestDispatcher rd=request.getRequestDispatcher("writeup.html");
+         RequestDispatcher rd=request.getRequestDispatcher("404.html");
      rd.forward(request, response);
+     }
+     
      
  }
  else
  {
      out.println("Wrong UserID Or Password Try Again");
-     RequestDispatcher rd=request.getRequestDispatcher("login.html");
+     RequestDispatcher rd=request.getRequestDispatcher("404.html");
      rd.forward(request, response);
  }
  
@@ -73,6 +76,8 @@ public class NewServlet extends HttpServlet {
         catch(Exception ex)
         {
             out.println(ex);
+            RequestDispatcher rd=request.getRequestDispatcher("404.html");
+     rd.forward(request, response);
         }
     }
 
