@@ -53,7 +53,9 @@ public class NewServlet extends HttpServlet {
      if(x==1)
      {
          out.println("Save");
-         RequestDispatcher rd=request.getRequestDispatcher("submission.html");
+         String n=rs.getString(2);
+         request.setAttribute("name", n);
+         RequestDispatcher rd=request.getRequestDispatcher("submit.jsp");
      rd.forward(request, response);
      }
      else

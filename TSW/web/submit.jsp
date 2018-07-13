@@ -1,3 +1,12 @@
+<%-- 
+    Document   : submit
+    Created on : 14-Jul-2018, 01:39:25
+    Author     : Naman
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+
 <html>
 <head>
     		<link rel="stylesheet" href="assets/css/main.css" />
@@ -34,13 +43,22 @@
                           <img class="image-icon" src ="images/tsw-icon.jpg"/>
 								
                     </div>
-                    
+                    <p> 
+Hi, 
+<%= request.getAttribute("name") %> 
+</p>
 					<div class="bdy">
                         Submit your write up here.
                      
                         <input style="height: 100px" name='sub'  type="text" placeholder="Type / Copy your submission">
                         
                         <br>
+                        
+                     
+                        <input style="height: 40px" name='pen'  type="text" placeholder="Enter your pen-name over here">
+                        
+                        <br>
+                        
                          <form action="#" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please confirm that all your work is original.'); return false; }">
 
                              <input type="checkbox" name="checkbox" value="check" id="agree" /> <label style="color: white" for="agree">I hereby declare that my submission is my original work.</label>
